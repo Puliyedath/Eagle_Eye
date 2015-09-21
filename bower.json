@@ -1,0 +1,8 @@
+{
+    "name": "SFMovieTimes",
+    "version":"1.0",
+    "dependencies": {
+	"angular": "~1.2"
+    }
+    
+}

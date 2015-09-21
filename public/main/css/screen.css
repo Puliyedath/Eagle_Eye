@@ -1,0 +1,268 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+@import url("http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,600,900");
+@import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css");
+/* line 5, ../../../../../../.rvm/gems/ruby-2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+/* line 22, ../../../../../../.rvm/gems/ruby-2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+html {
+  line-height: 1;
+}
+
+/* line 24, ../../../../../../.rvm/gems/ruby-2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 26, ../../../../../../.rvm/gems/ruby-2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 28, ../../../../../../.rvm/gems/ruby-2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/* line 30, ../../../../../../.rvm/gems/ruby-2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: none;
+}
+/* line 103, ../../../../../../.rvm/gems/ruby-2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+/* line 32, ../../../../../../.rvm/gems/ruby-2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none;
+}
+
+/* line 116, ../../../../../../.rvm/gems/ruby-2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block;
+}
+
+/*Basic */
+@-ms-viewport {
+  width: device-width;
+}
+/* line 17, ../sass/screen.scss */
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+/* line 21, ../sass/screen.scss */
+body {
+  line-height: 1.70em;
+  background: #f5f7fa;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weigth: 300;
+  color: #656b74;
+  font-size: 16pt;
+}
+
+/* line 30, ../sass/screen.scss */
+h1, h2, h3, h4, h5 {
+  font-weight: 600;
+  color: #313a45;
+}
+
+/* line 35, ../sass/screen.scss */
+input, textarea, select {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 300;
+  color: #656b74;
+  font-size: 16pt;
+}
+
+/* line 42, ../sass/screen.scss */
+.container {
+  margin: 0 auto;
+  width: 90%;
+}
+
+/*wrappers*/
+/* line 49, ../sass/screen.scss */
+#main {
+  overflow: hidden;
+}
+
+/* line 53, ../sass/screen.scss */
+#header-wrapper {
+  position: fixed;
+  background: #ffffff;
+  width: 100%;
+  z-index: 10000;
+  top: 0;
+  left: 0;
+  box-shadow: 0 0.05em 0.15em 0 rgba(0, 0, 0, 0.15);
+  height: 3em;
+  text-align: center;
+}
+
+/* line 65, ../sass/screen.scss */
+#map-wrapper {
+  height: 500px;
+}
+
+/* line 69, ../sass/screen.scss */
+#d3-wrapper {
+  height: 300px;
+  border: 1px solid red;
+  background: white;
+  background: #fff url("../img/light_mosaic.png") repeat scroll 0% 0%;
+  position: relative;
+  text-align: center;
+}
+/* line 77, ../sass/screen.scss */
+#d3-wrapper ul.badges {
+  width: 60%;
+  height: 30%;
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  vertical-align: middle;
+}
+/* line 87, ../sass/screen.scss */
+#d3-wrapper ul.badges li.badge {
+  margin-right: 1em;
+  padding: 0;
+  float: left;
+  background: transparent;
+}
+/* line 93, ../sass/screen.scss */
+#d3-wrapper ul.badges li.badge a {
+  display: block;
+  height: 100%;
+  border-radius: 100%;
+  font-size: 2em;
+  color: #fff;
+  background: black;
+  text-decoration: none;
+  padding: 0.2em;
+  overflow: hidden;
+  border: 0.3em solid red;
+  box-shadow: 0 0.05em 0.05em 0 rgba(0, 0, 0, 0.15);
+}
+/* line 107, ../sass/screen.scss */
+#d3-wrapper ul.badges li.badge a:hover {
+  background: #fff;
+  color: black;
+}
+/* line 113, ../sass/screen.scss */
+#d3-wrapper ul.badges li:last-child {
+  float: right;
+  margin-right: 0;
+}
+
+/* line 121, ../sass/screen.scss */
+#map {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 0.5em 0.5em 0 rgba(0, 0, 0, 0.35);
+  padding: 0.5em 1em;
+  margin-bottom: 0.5em;
+}
+
+/* line 131, ../sass/screen.scss */
+#main-wrapper {
+  background: white;
+  padding: 4em 0;
+  background: #fff url("../img/light_mosaic.png") repeat scroll 0% 0%;
+  position: relative;
+}
+/* line 137, ../sass/screen.scss */
+#main-wrapper #map-wrapper {
+  position: relative;
+  text-align: center;
+}
+
+/* line 144, ../sass/screen.scss */
+#search {
+  display: inline-block;
+  width: 50%;
+}
+
+/*forms */
+/* line 153, ../sass/screen.scss */
+form > a {
+  display: inline-block;
+  padding: 0 1em;
+  background: black;
+  color: #fff;
+  border-radius: 5px;
+  height: 100%;
+  float: right;
+}
+/* line 164, ../sass/screen.scss */
+form input, form select, form textarea {
+  -webkit-appearance: none;
+}
+/* line 169, ../sass/screen.scss */
+form input[type=text] textarea, form select textarea, form textarea textarea {
+  -webkit-appearance: none;
+  position: relative;
+  width: 100%;
+  border: 0;
+  padding: 0.70em;
+  border-radius: 0.5em;
+  background: #f5f7fa;
+  outline: none;
+}
+/* line 179, ../sass/screen.scss */
+form input[type=text] textarea:focus, form select textarea:focus, form textarea textarea:focus {
+  background: #f0f2f5;
+}
+/* line 184, ../sass/screen.scss */
+form input[type=text] textarea, form select textarea, form textarea textarea {
+  height: 12em;
+}
+
+/* line 189, ../sass/screen.scss */
+form:after {
+  content: '';
+  display: block;
+  margin-bottom: 0.5em;
+}
+
+/* line 195, ../sass/screen.scss */
+#header {
+  height: 3em;
+  line-height: 3em;
+  text-align: center;
+}
+/* line 200, ../sass/screen.scss */
+#header h1 {
+  font-size: 1.25em;
+  color: #343e49;
+  margin: 0;
+}

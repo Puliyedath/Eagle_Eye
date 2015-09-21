@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+	<head>
+		<title>San Fransisco Movie Times</title>
+		<meta charset="utf-8" name="viewport" content="San fransisco movie timings" content="width=device-width, initial-scale=1">
+		<link href="/public/main/css/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
+		<link href="/public/main/css/print.css" media="print" rel="stylesheet" type="text/css" />
+		<!--[if IE]>
+		<link href="/public/main/css/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
+		<![endif]-->
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+
+	</head>
+	<body ng-app="sfMovieApp">
+		<div id="main" ng-controller="mainCtrl">
+			<div id="header-wrapper">
+				<div id="header" class="container">
+					<h1>San Fransisco Movie Timings</h1>
+				</div>
+			</div> <!-- header wrapper ends -->
+			<div id="main-wrapper">
+				<div id="map-wrapper" class="container">
+					<form ng-submit="submit(text)" novalidate>
+							<movie-search></movie-search>
+							<!-- <input id="search" ng-model="text" placeholder="search for streets">-->
+							<!-- replaced that input with a directive-->
+					</form>
+					<movie-map streets="locations" zoom="12"></movie-map>
+					<!-- this is where the custom google maps attribute is going to go - replace by div#map with class container -->
+					
+				</div>
+			</div>
+		</div>
+
+		<!-- angular scripts that need to be loaded -->
+		<script type="text/javascript" src="./public/application.js"></script>
+		<script type="text/javascript" src="./public/main/services/main.services.dataCollector.js"></script>
+		<script type="text/javascript" src="./public/main/controllers/main.client.controller.js"></script>
+		<script type="text/javascript" src="./public/main/directives/maps.js"></script>
+		<script type="text/javascript" src="./public/main/directives/search.js"></script>
+	</body>
+</html>
