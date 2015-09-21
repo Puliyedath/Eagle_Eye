@@ -6,5 +6,5 @@
 .DS_Store
 .sass-cache
 
-public/libs
+public/lib
 node_modules
