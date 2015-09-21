@@ -4,6 +4,8 @@
 [#]*[#]
 .\#*
 .DS_Store
+.bowerrc
+.sass-cache
 
 public/libs
 node_modules
