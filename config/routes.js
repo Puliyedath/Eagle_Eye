@@ -23,6 +23,16 @@ module.exports= function(app){
 	});
     });
 
+    app.get('/all', function(req,res){
+	location.find({}, function(err, locations){
+	    if (err){
+		res.send({error: "no records could be retrieved"});
+	    }else{
+		res.send(locations);
+	    }
+	});
+    });
+
     //catch all route
     app.get('*', function(req, res){
 	res.render('main.client.view.html');

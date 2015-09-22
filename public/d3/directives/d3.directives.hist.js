@@ -1,11 +1,12 @@
 (function(){
-    angular.module('sfMovieApp')
-	.directive('histogram', ['d3Service', function(d3Service){
+    angular.module('d3')
+	.directive('histogram', ['d3Service', '$window',function(d3Service, $window){
 	    return{
 		restrict: 'EA',
-		scope: {},
+		scope: {
+		    data: "="
+		},
 		link: function(scope, element, attrs){
-		    console.log('i am here');
 		    d3Service.d3Promise.then(function(d3){ //d3 - the promise in the service is resolved with the d3 object
 
 			var margin = parseInt(attrs.margin) || 20;
@@ -30,9 +31,13 @@
 			    scope.renderData(scope.data);
 			});
 
+			//watch to rerender the svg when the data changes
+			scope.$watch('data', function(newValue, oldValue){
+			    return scope.renderData(newValue); 
+			},true);
+
 			scope.renderData = function(data){
 			    //this is where the svg is rendered
-
 			    svg.selectAll('*').remove();
 
 			    if(!data){
@@ -40,7 +45,7 @@
 			    }
 
 			    //setting up width height and color of the svg
-			    var width = d3.select(element[0]).node().offsetWidth - margin,
+			    var width = d3.select(element[0]).node().offsetWidth - 2 * margin,
 				color = d3.scale.category10(),
 				svGheight = scope.data.length * (barHeight + padding),
 				xScale = d3.scale.linear()
@@ -71,8 +76,7 @@
 				    return xScale(d.score);
 				});
 
-			    console.log("************ linking");
-									    
+			    
 			};
 			
 		    });

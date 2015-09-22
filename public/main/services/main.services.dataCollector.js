@@ -19,5 +19,14 @@
 			}
 		    });
 	    };
+
+	    this.getAllMovies = function(callback){
+		$http.get('/all')
+		    .success(function(data){
+			if (!data.error){
+			    callback(data);
+			}
+		    });
+	    };
 	}]);
 })();

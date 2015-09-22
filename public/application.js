@@ -9,6 +9,7 @@
 		.when("/showLineChart", {
 		    templateUrl: "/d3/partials/linechart.html"
 		}).
-		otherwise({redirectTo: "/persons"});
+		otherwise({redirectTo: "/showBarChart"});
     }]);
 }());
+

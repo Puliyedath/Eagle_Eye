@@ -20,11 +20,12 @@
 
 body{
     line-height: 1.70em;
-    background:#f5f7fa;
+    background: #fff url("../img/light_mosaic.png") repeat scroll 0% 0%;
     font-family: 'Source Sans Pro', sans-serif;
     font-weigth: 300;
     color: #656b74;
     font-size: 16pt;
+    padding: 2em;
 }
 
 h1, h2, h3, h4, h5 {
@@ -63,30 +64,46 @@ input, textarea, select, {
 }
 
 #map-wrapper{
-    height: 500px;
+    height: 300px;
 }
 
 #svg-wrapper{
     display: block;
     width: 100%;
-    height: 100%;
-    border: 1px solid blue;
+    height: 300px;;
+    background: #fff;
+    box-shadow: 0 0.5em 0.5em 0 rgba(0, 0, 0 , 0.35);
+
+    ul.fields{
+	margin: 0;
+	padding:0;
+
+	li.field{
+	    display: block;
+	    float:left;
+	    margin:0;
+	    padding:0;
+		       
+
+	    input{
+		padding: 0 0.1em;
+		width:30%;
+	    }
+	}
+    }
 }
 
 #d3-wrapper{
-    height: 300px;
-    border: 1px solid red;
+    height: 100%;
     background:white;
-    background: #fff url("../img/light_mosaic.png") repeat scroll 0% 0%;
     position: relative;
     text-align: center;
 
     ul.badges{
-	width: 60%;
 	height: 30%;
-	display:inline-block;
+	display:block;
 	margin: 0;
-	padding:0;
+	padding:0.3em 0 2em 1em;
 	position: relative;
 	vertical-align:middle;
 
@@ -107,8 +124,8 @@ input, textarea, select, {
 		text-decoration:none;
 		padding: 0.2em;
 		overflow: hidden;
-		border: 0.3em solid red;
-		box-shadow: 0 0.05em 0.05em 0 rgba(0,0,0, 0.15);
+		border: 0.1em solid #B3D1FF;
+		box-shadow: 0 0.1em 0.1em 0 rgba(0,0,0, 0.15);
 	    }
 
 	    a:hover{
@@ -118,7 +135,6 @@ input, textarea, select, {
 	}
 
 	li:last-child{
-	    float: right;
 	    margin-right:0;
 	}
 
@@ -137,7 +153,7 @@ input, textarea, select, {
 
 #main-wrapper{
     background:white;
-    padding: 4em 0;
+    padding: 2em 0;
     background: #fff url("../img/light_mosaic.png") repeat scroll 0% 0%;
     position: relative;
 

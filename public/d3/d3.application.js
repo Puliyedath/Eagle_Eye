@@ -1,10 +1,10 @@
 (function(){
     angular.module('d3', [])
-	.factory('d3Service', ['$document', '$q', '$rootscope', function($document, $q, $rootscope){
+	.factory('d3Service', ['$document', '$q', '$rootScope', function($document, $q, $rootScope){
 	    var defer = $q.defer();
 
 	    function onScriptLoad(){
-		$rootscope.$apply(function(){
+		$rootScope.$apply(function(){
 		    //this will resolve the promise with d3 object and make it avaibable in the callback
 		    defer.resolve(window.d3);
 		});
@@ -26,7 +26,7 @@
 	    $document[0].getElementsByTagName('body')[0].appendChild(scriptTag);
 
 	    return {
-		d3Promise: defer.promise()
+		d3Promise: defer.promise
 	    };
 	    
 	}]);

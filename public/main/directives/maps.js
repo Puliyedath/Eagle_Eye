@@ -24,7 +24,7 @@
 
     angular.module('sfMovieApp')
 	.factory('mapsInit',mapsInitFactory)
-	.directive("movieMap", ['$q', 'mapsInit',function($q,mapsInit){
+	.directive("movieMap", ['$q', 'mapsInit', function($q,mapsInit){
 	    return {
 		restrict: 'AE',
 		replace: true,
