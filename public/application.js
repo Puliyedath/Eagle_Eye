@@ -1,5 +1,5 @@
 (function(){
-    var app = angular.module('sfMovieApp', ['ngRoute']);
+    var app = angular.module('sfMovieApp', ['ngRoute', 'd3']);
     app.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider){
 
 	    $routeProvider
@@ -9,6 +9,6 @@
 		.when("/showLineChart", {
 		    templateUrl: "/d3/partials/linechart.html"
 		}).
-		otherwise({redirectTo: "/"});
+		otherwise({redirectTo: "/persons"});
     }]);
 }());

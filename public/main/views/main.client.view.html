@@ -62,13 +62,15 @@
 						</a>
 					</li>
 				</ul>
-				<div ng-view></div>
+				<div id="svg-wrapper" ng-view></div>
 			</div>
 
 		</div>
 
 		<!-- angular scripts that need to be loaded -->
+		<script type="text/javascript" src="d3/d3.application.js"></script>
 		<script type="text/javascript" src="application.js"></script>
+		<script type="text/javascript" src="d3/directives/d3.directives.hist.js"></script>
 		<script type="text/javascript" src="d3/controllers/d3.main.controller.js"></script>
 		<script type="text/javascript" src="main/services/main.services.dataCollector.js"></script>
 		<script type="text/javascript" src="main/controllers/main.client.controller.js"></script>
@@ -76,6 +78,7 @@
 		<script type="text/javascript" src="main/directives/search.js"></script>
 		
 		<!-- d3 controllers being loaded -->
+
 
 	</body>
 </html>
