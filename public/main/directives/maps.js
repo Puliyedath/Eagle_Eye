@@ -24,7 +24,7 @@
 
     angular.module('sfMovieApp')
 	.factory('mapsInit',mapsInitFactory)
-	.directive("movieMap", ['$q', 'mapsInit', function($q,mapsInit){
+	.directive("movieMap", ['$q', 'mapsInit', '$window', function($q, mapsInit, $window){
 	    return {
 		restrict: 'AE',
 		replace: true,
@@ -34,20 +34,26 @@
 		    streets: "="
 		},
 		link: function($scope){
+		    var zoom = $scope.zoom || 12;
 		    var geocoder, latlng, map,
 			markers=[];
 		    var initialize = function(){
 			latlng = new google.maps.LatLng(37.775, -122.419);
 			var options = {
-			    zoom: $scope.zoom,
+			    zoom: zoom,
 			    center: latlng,
-			    mapTypeId: google.maps.MapTypeId.ROADMAP
+			    mapTypeId: google.maps.MapTypeId.ROADMAP,
+			    scrollwheel: false,
+			    navigationControl: false,
+			    mapTypeControl: false,
+			    scaleControl: false
 			};
 
 			map = new google.maps.Map(document.getElementById('map'), options);
 			return map;
 
 		    };
+
 
 		    var addStreetMarkers = function(map, markers){
 			var geocodedMap = $q.defer();
@@ -72,14 +78,16 @@
 				    map.setCenter(resultMarkers[0].geometry.location);
 
 				    var infoWindow = new google.maps.InfoWindow({
-					content: street.title + "(" + street.locations + ")",
+					content: "<div class=infobox><p>Movie:" + street.title + "(" + street.locations + ")" + "</br>ReleaseYear:" + street.release_year + "</p></div>",
 					map: map
+
 				    });
 
 				    var marker = new google.maps.Marker({
 					map: map,
 					position: resultMarkers[0].geometry.location
 				    });
+
 
 				    //pops start showing up on the map if you dont call this here
 				    infoWindow.close();

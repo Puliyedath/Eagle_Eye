@@ -6,10 +6,7 @@
 		.when("/showBarChart",{
 		    templateUrl: "/d3/partials/barchart.html"
 		})
-		.when("/showLineChart", {
-		    templateUrl: "/d3/partials/linechart.html"
-		}).
-		otherwise({redirectTo: "/showBarChart"});
+	    .otherwise({redirectTo: "/"});
     }]);
 }());
 

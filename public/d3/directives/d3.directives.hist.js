@@ -6,11 +6,12 @@
 		scope: {
 		    data: "="
 		},
+
 		link: function(scope, element, attrs){
 		    d3Service.d3Promise.then(function(d3){ //d3 - the promise in the service is resolved with the d3 object
 
 			var margin = parseInt(attrs.margin) || 20;
-			var barHeight = parseInt(attrs.barHeight) || 20;
+			var barHeight = parseInt(attrs.barHeight) || 30;
 			var padding = 5 ;
 			
 			//appending the svg to the element
@@ -76,7 +77,23 @@
 				    return xScale(d.score);
 				});
 
-			    
+			    svg.selectAll('text')
+				.data(data)
+				.enter()
+				.append('text')
+				.text(function(d){
+				    return d.year + "(" + (d.score) + ")" ;
+				})
+				.attr('x', function(d,i){
+				    return Math.round(margin + 4);
+				})
+				.attr('y', function(d,i){
+				    return i * (barHeight + padding) + 20;
+				})
+				.attr("font-family", "sans-serif")
+				.attr("font-size", "0.6em")
+			    	.attr("font-weight", "500")
+				.attr("fill","black");
 			};
 			
 		    });

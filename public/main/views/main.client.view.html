@@ -1,7 +1,7 @@
 <!doctype html>
 <html ng-app="sfMovieApp">
 	<head>
-		<title>San Fransisco Movie Times</title>
+		<title>San Fransisco Shooting Locations</title>
 		<meta charset="utf-8" name="viewport" content="San fransisco movie timings" content="width=device-width, initial-scale=1">
 		<link href="main/css/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
 		<link href="main/css/print.css" media="print" rel="stylesheet" type="text/css" />
@@ -10,31 +10,12 @@
 		<![endif]-->
 		<script type="text/javascript" src="lib/angular/angular.min.js"></script>
 		<script type="text/javascript" src="lib/angular-route/angular-route.min.js"></script>
-
-		<style>
-		.autocomplete{
-			z-index: 10000;
-			border-radius: 0.5em;
-			background: #fff;
-			position:absolute;
-			width: 40%;
-			border: 1px solid none;
-			overflow: hidden;
-		}
-
-		.autocomplete p:hover{
-			background: gray;
-			border-radius: 3px;
-		}
-
-		
-		</style>
 	</head>
 	<body class="homepage">
 		<div ng-controller="mainCtrl">
 			<div id="header-wrapper">
 				<div id="header" class="container">
-					<h1>San Fransisco Movie Timings</h1>
+					<h1>San Francisco: Movie Shoot Locations</h1>
 				</div>
 			</div> <!-- header wrapper ends -->
 			<div id="main-wrapper" class="container">
@@ -54,11 +35,6 @@
 					<li class="badge">
 						<a href="#/showBarChart">
 							<span class="fa fa-bar-chart"></span>
-						</a>
-					</li>
-					<li class="badge">
-						<a href="#/showLineChart">
-							<span class="fa fa-line-chart"></span>
 						</a>
 					</li>
 				</ul>

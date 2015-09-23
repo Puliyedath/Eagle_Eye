@@ -73,12 +73,12 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 @-ms-viewport {
   width: device-width;
 }
-/* line 17, ../sass/screen.scss */
+/* line 27, ../sass/screen.scss */
 *, *:before, *:after {
   box-sizing: border-box;
 }
 
-/* line 21, ../sass/screen.scss */
+/* line 31, ../sass/screen.scss */
 body {
   line-height: 1.70em;
   background: #fff url("../img/light_mosaic.png") repeat scroll 0% 0%;
@@ -88,37 +88,81 @@ body {
   font-size: 16pt;
   padding: 2em;
 }
+@media (min-width: 768px) and (max-width: 1023px) {
+  /* line 31, ../sass/screen.scss */
+  body {
+    font-size: 15pt;
+  }
+}
+@media (max-width: 767px) {
+  /* line 31, ../sass/screen.scss */
+  body {
+    font-size: 13pt;
+  }
+}
 
-/* line 31, ../sass/screen.scss */
+/* line 49, ../sass/screen.scss */
 h1, h2, h3, h4, h5 {
   font-weight: 600;
   color: #313a45;
 }
 
-/* line 36, ../sass/screen.scss */
+/* line 54, ../sass/screen.scss */
 input, textarea, select {
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: "Source Sans Pro", sans-serif;
   font-weight: 300;
   color: #656b74;
-  font-size: 16pt;
+  font-size: 1em;
 }
 
-/* line 43, ../sass/screen.scss */
+/* line 61, ../sass/screen.scss */
 .container {
   margin: 0 auto;
   width: 90%;
 }
 
+/* line 66, ../sass/screen.scss */
+.autocomplete {
+  z-index: 10000;
+  background: #fff;
+  position: absolute;
+  width: 40%;
+  border: 1px solid none;
+  overflow: hidden;
+  font-size: 1em;
+}
+
+/* line 76, ../sass/screen.scss */
+.selected {
+  background: #B3D1FF;
+  font-weight: bold;
+  font-style: italic;
+}
+
+/* line 82, ../sass/screen.scss */
+.autocomplete p:hover {
+  background: #B3D1FF;
+  font-weight: bold;
+  font-style: italic;
+}
+
+/* line 88, ../sass/screen.scss */
+.infobox {
+  font-weight: 400;
+  color: black;
+  text-decoration: underline;
+}
+
 /*wrappers*/
-/* line 50, ../sass/screen.scss */
+/* line 96, ../sass/screen.scss */
 #main {
   overflow: hidden;
 }
 
-/* line 54, ../sass/screen.scss */
+/* line 100, ../sass/screen.scss */
 #header-wrapper {
   position: fixed;
-  background: #ffffff;
+  background: #fff;
   width: 100%;
   z-index: 10000;
   top: 0;
@@ -128,12 +172,12 @@ input, textarea, select {
   text-align: center;
 }
 
-/* line 66, ../sass/screen.scss */
+/* line 112, ../sass/screen.scss */
 #map-wrapper {
   height: 300px;
 }
 
-/* line 70, ../sass/screen.scss */
+/* line 116, ../sass/screen.scss */
 #svg-wrapper {
   display: block;
   width: 100%;
@@ -141,48 +185,54 @@ input, textarea, select {
   background: #fff;
   box-shadow: 0 0.5em 0.5em 0 rgba(0, 0, 0, 0.35);
 }
-/* line 77, ../sass/screen.scss */
+/* line 123, ../sass/screen.scss */
 #svg-wrapper ul.fields {
   margin: 0;
   padding: 0;
+  display: inline-block;
+  width: 100%;
 }
-/* line 81, ../sass/screen.scss */
+/* line 129, ../sass/screen.scss */
 #svg-wrapper ul.fields li.field {
-  display: block;
+  display: inline-block;
+  width: 30%;
   float: left;
   margin: 0;
   padding: 0;
+  float: left;
 }
-/* line 88, ../sass/screen.scss */
+/* line 138, ../sass/screen.scss */
 #svg-wrapper ul.fields li.field input {
   padding: 0 0.1em;
   width: 30%;
 }
 
-/* line 96, ../sass/screen.scss */
+/* line 146, ../sass/screen.scss */
 #d3-wrapper {
   height: 100%;
   background: white;
   position: relative;
   text-align: center;
+  border-radius: 1em;
 }
-/* line 102, ../sass/screen.scss */
+/* line 153, ../sass/screen.scss */
 #d3-wrapper ul.badges {
-  height: 30%;
   display: block;
-  margin: 0;
-  padding: 0.3em 0 2em 1em;
   position: relative;
-  vertical-align: middle;
 }
-/* line 111, ../sass/screen.scss */
+/* line 157, ../sass/screen.scss */
+#d3-wrapper ul.badges:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+/* line 163, ../sass/screen.scss */
 #d3-wrapper ul.badges li.badge {
-  margin-right: 1em;
-  padding: 0;
+  padding: 0 1em 0 0;
   float: left;
   background: transparent;
 }
-/* line 117, ../sass/screen.scss */
+/* line 168, ../sass/screen.scss */
 #d3-wrapper ul.badges li.badge a {
   display: block;
   height: 100%;
@@ -196,17 +246,17 @@ input, textarea, select {
   border: 0.1em solid #B3D1FF;
   box-shadow: 0 0.1em 0.1em 0 rgba(0, 0, 0, 0.15);
 }
-/* line 131, ../sass/screen.scss */
+/* line 182, ../sass/screen.scss */
 #d3-wrapper ul.badges li.badge a:hover {
   background: #fff;
   color: black;
 }
-/* line 137, ../sass/screen.scss */
+/* line 188, ../sass/screen.scss */
 #d3-wrapper ul.badges li:last-child {
   margin-right: 0;
 }
 
-/* line 144, ../sass/screen.scss */
+/* line 195, ../sass/screen.scss */
 #map {
   display: inline-block;
   width: 100%;
@@ -216,27 +266,27 @@ input, textarea, select {
   margin-bottom: 0.5em;
 }
 
-/* line 154, ../sass/screen.scss */
+/* line 205, ../sass/screen.scss */
 #main-wrapper {
   background: white;
   padding: 2em 0;
   background: #fff url("../img/light_mosaic.png") repeat scroll 0% 0%;
   position: relative;
 }
-/* line 160, ../sass/screen.scss */
+/* line 211, ../sass/screen.scss */
 #main-wrapper #map-wrapper {
   position: relative;
   text-align: center;
 }
 
-/* line 167, ../sass/screen.scss */
+/* line 218, ../sass/screen.scss */
 #search {
   display: inline-block;
   width: 50%;
 }
 
 /*forms */
-/* line 176, ../sass/screen.scss */
+/* line 227, ../sass/screen.scss */
 form > a {
   display: inline-block;
   padding: 0 1em;
@@ -246,11 +296,11 @@ form > a {
   height: 100%;
   float: right;
 }
-/* line 187, ../sass/screen.scss */
+/* line 238, ../sass/screen.scss */
 form input, form select, form textarea {
   -webkit-appearance: none;
 }
-/* line 192, ../sass/screen.scss */
+/* line 243, ../sass/screen.scss */
 form input[type=text] textarea, form select textarea, form textarea textarea {
   -webkit-appearance: none;
   position: relative;
@@ -261,29 +311,29 @@ form input[type=text] textarea, form select textarea, form textarea textarea {
   background: #f5f7fa;
   outline: none;
 }
-/* line 202, ../sass/screen.scss */
+/* line 253, ../sass/screen.scss */
 form input[type=text] textarea:focus, form select textarea:focus, form textarea textarea:focus {
   background: #f0f2f5;
 }
-/* line 207, ../sass/screen.scss */
+/* line 258, ../sass/screen.scss */
 form input[type=text] textarea, form select textarea, form textarea textarea {
   height: 12em;
 }
 
-/* line 212, ../sass/screen.scss */
+/* line 263, ../sass/screen.scss */
 form:after {
   content: '';
   display: block;
   margin-bottom: 0.5em;
 }
 
-/* line 218, ../sass/screen.scss */
+/* line 269, ../sass/screen.scss */
 #header {
   height: 3em;
   line-height: 3em;
   text-align: center;
 }
-/* line 223, ../sass/screen.scss */
+/* line 274, ../sass/screen.scss */
 #header h1 {
   font-size: 1.25em;
   color: #343e49;
