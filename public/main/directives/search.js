@@ -14,28 +14,40 @@
                 scope.$apply(function(){
                     if(scope.visible){
                         //frustrating -they changed the keycode props form keyCode to stupid which
-                        if(event.which == 40){
+                        //9 because the partial for this has a limitto filter applied as 9 
+                        if(event.which == 40 && (scope.selIndex < 9)){
                             scope.selIndex = scope.selIndex + 1;
+                            return;
                         }
 
                         //making sure that the sel Index is not negative
                         if(event.which == 38 && (scope.selIndex >= 1)){
                             scope.selIndex = scope.selIndex - 1;
+                            return;
                         }
+
+                        //submit the form for enter key
+                        if(event.which == 13){
+                            scope.selIndex = 'submit';
+                            return;
+                        }
+
+                        //like a reset
+                        scope.selIndex = 0;
                     }
                 });
 		    });
 
 
-            scope.isSelected = function(index,count) {
-                console.log('ding ding');
+            scope.isSelected = function(index,count,location) {
+                if(scope.selIndex === 'submit'){
+                    scope.select(scope.selItem);
+                    return;
+                }
+
+                scope.selItem = location;
                 console.log(scope.selIndex);
                 console.log(index);
-                console.log(count);
-                //9 because the partial for this has a limitto filter applied as 9 
-                if(scope.selIndex > 9 || scope.selIndex >= count){
-                    scope.selIndex = 0;
-                }
                 return scope.selIndex == index;
             }
 

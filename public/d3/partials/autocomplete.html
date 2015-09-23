@@ -1,7 +1,7 @@
 <div>
 	<input id='search' ng-model='text' placeholder='search for streets'>
 	<ul ng-show=visible class='autocomplete'> 
-        <li ng-class="{'selected': isSelected($index, locations.length)}" class='button' ng-click='select(location)' ng-repeat='location in locations | limitTo: 10'>
+        <li ng-class="{'selected': isSelected($index, locations.length, location)}" class='button' ng-click='select(location)' ng-repeat='location in locations | limitTo: 10'>
 			<strong>{{location.title}}-{{location.locations}}</strong>
 		</li>
 	</ul>
