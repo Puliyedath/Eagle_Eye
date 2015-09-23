@@ -5,6 +5,8 @@
 .\#*
 .DS_Store
 .sass-cache
+*flycheck*
+
 
 public/lib
 node_modules
