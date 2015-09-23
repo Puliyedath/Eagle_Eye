@@ -22,7 +22,7 @@
 	    		return false;
 	    	    });
 	    
-	    	}),1000).then(function(){
+	    	}),0).then(function(){
 	    	    $scope.d3Data = releaseYearData;
 	    	});
 	    });
