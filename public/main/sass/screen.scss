@@ -18,8 +18,10 @@ $pure-white: #fff;
 $pure-black: black;
 $maps-blue: #B3D1FF;
 
-$tablet: "(min-width: 768px) and (max-width: 1023px)";
-$mobile: "(max-width: 767px)";
+$desktop:"(max-width: 1680px)";
+$tablet: "(max-width: 980px)";
+$mobile: "(max-width: 680px)";
+
 
 
 
@@ -37,13 +39,18 @@ body{
     font-size: 16pt;
     padding: 2em;
 
+    @media #{$desktop} {
+	    font-size: 16pt;
+    }
+
     @media #{$tablet} {
 	font-size: 15pt;
     }
 
     @media #{$mobile}{
-	font-size: 13pt;
+	font-size: 11pt;
     }
+
 }
 
 h1, h2, h3, h4, h5 {
@@ -71,6 +78,15 @@ input, textarea, select, {
     border: 1px solid none;
     overflow: hidden;
     font-size: 1em;
+
+    @media #{$desktop}{
+	    width :40%;
+    }
+
+    @media #{$tablet}{
+	    width: 40%;
+    }
+
 }
 
 .selected{
@@ -218,6 +234,18 @@ input, textarea, select, {
 #search{
     display:inline-block;
     width: 50%;
+
+    @media #{$desktop}{
+	    width: 50%;
+    }
+
+    @media #{$tablet}{
+	    width: 50%;
+    }
+
+    @media #{$mobile}{
+	    width: 100%;
+    }
 }
 
 
