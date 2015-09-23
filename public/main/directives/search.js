@@ -8,6 +8,7 @@
 		link: function(scope, elem, attrs){
 
             scope.selIndex = 0;
+            scope.selItem = null;
             
 		    //attaching the event listeninger to the ul 
 		    elem.bind("keydown keypress", function (event){
@@ -32,8 +33,9 @@
                             return;
                         }
 
-                        //like a reset
-                        scope.selIndex = 0;
+                        scope.selIndex = 0 ;
+                        scope.selItem = null;
+
                     }
                 });
 		    });
@@ -45,9 +47,17 @@
                     return;
                 }
 
-                scope.selItem = location;
-                console.log(scope.selIndex);
-                console.log(index);
+                if(scope.selIndex == index){
+                    scope.selItem = location;
+                }
+
+                console.log("sel index is " + scope.selIndex);
+                console.log("sel item is " + scope.selItem);
+                console.log(scope.selItem);
+                console.log("index is " + index);
+                if(scope.selIndex >= count){
+                    scope.selIndex = 0;
+                }
                 return scope.selIndex == index;
             }
 
@@ -58,6 +68,7 @@
 		    scope.select = function(location){
 			scope.visible = false;
             scope.selIndex = 0;
+            scope.selItem = null;
 			var output = [];
 			output.push(location);
 			scope.submit(output, true);
