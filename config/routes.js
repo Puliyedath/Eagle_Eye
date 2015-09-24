@@ -11,9 +11,14 @@ module.exports= function(app){
     app.get('/', function(req, res){
 	res.render('main.client.view.html');
     });
-    
 
-    app.get('/sResults', function(req,res){
+    /*
+     ************************************************************************************************************************************************
+     * Route: Route handler for the search suggestions that come from the client
+     * Error Handling: sends back an error object to the client (only runs the query if a valid query string is formed at the server side
+     *************************************************************************************************************************************************
+     */
+    app.get('/sResults', function(req,res,next){
 	var input = location.createQueryString(req.query.queryString);
 	if(input === ""){
 	    console.log('invalid');
@@ -22,9 +27,8 @@ module.exports= function(app){
 	}
 
 	location.find(input , function(err, locations){
-	    //console.log(locations);
 	    if (err){
-		res.send({error: "no records could be retrieved"});
+		next(err); //calling the next middleware
 	    }else{
 		res.send(locations);
 	    }
@@ -39,14 +43,15 @@ module.exports= function(app){
      */
     
     app.get('/releaseAndLocations',function(req, res,next){
+	
 	var queryString = '$select=release_year,count(locations)&$group=release_year';
 	request.get('https://data.sfgov.org/resource/yitu-d5am.json?' + queryString, function(err,response,body){
 	    if(err){
 		//soda api failed to give results start using data from the local db
 		next();
 	    }else{
-		console.log("extern data from the api received");
 		console.log(body);
+		console.log("Data Received from the external soda2 api");
 		res.send(body);
 	    }
 	});
@@ -59,7 +64,7 @@ module.exports= function(app){
      * Error Handling: If no data is received from the database and an empty error object goes to the client
      *************************************************************************************************************************************************
      */
-    app.get('/releaseAndLocations', function(req,res){
+    app.get('/releaseAndLocations', function(req,res, next){
 	location.aggregate([{
 		$group:{
 		    _id: {
@@ -79,27 +84,15 @@ module.exports= function(app){
 	    }], function(err, locations){
 		if(err){
 		    console.log("data retrieved from local database");
-		    res.send({error: "data could not be retrieved" , source: "local cache"});
+		    next(err);
+		    //res.send({error: "data could not be retrieved" , source: "local cache"});
 		}else{
-		    console.log("data cached from the database");
-		    locations.source="local cache";
+		    console.log("data cached from the database send to the server");
 		    res.send(locations);
 		}
 	});
     });
     
-
-    //all the data from the database
-    app.get('/all', function(req,res){
-	location.find({}, function(err, locations){
-	    if (err){
-		res.send({error: "no records could be retrieved"});
-	    }else{
-		res.send(locations);
-	    }
-	});
-    });
-
      /*
      ************************************************************************************************************************************************
      * Route: Catch all route for all unhandled request before it hits the express middleware
@@ -108,5 +101,16 @@ module.exports= function(app){
      */
     app.get('*', function(req, res){
 	res.render('main.client.view.html');
+    });
+
+    /*
+     ************************************************************************************************************************************************
+     * Route: error handler middleware for express
+     * Error Handling: last piece of error handling middleware 
+     *************************************************************************************************************************************************
+     */
+    app.use(function(err, req, res, next){
+	console.log(err);
+	res.statue(500).end({status:500, message:'internal error', type: 'internal'});
     });
 };

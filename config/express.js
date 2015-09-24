@@ -17,6 +17,9 @@ module.exports = function(config){
     //configuring the static routes
     app.use(express.static('./public'));
 
+    //setting the usecash environment flag as an app level variable 
+    app.set('USECACHE', config.USECACHE);
+
     //configuring the dynamic routes
     require('./routes')(app);
 
