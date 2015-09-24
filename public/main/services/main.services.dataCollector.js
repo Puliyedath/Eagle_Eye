@@ -3,7 +3,7 @@
 	.service('dataCollector', ['$http', '$q', function($http, $q){
 	    this.lastQuery = "";
 
-	    this.setLastSubMittedQuery = function(queryString, callback){
+	    this.setLastSubMittedQuery = function(queryString){
 		if (this.lastQuery === queryString){
 		    console.log('no change in the query , no need to run');
 		    return;
@@ -20,14 +20,14 @@
 		    });
 	    };
 
-	    this.getAllMovies = function(callback){
-		$http.get('/all')
-		    .success(function(data){
-			if (!data.error){
-			    callback(data);
-			}
-		    });
-	    };
+//is.getAllMovies = function(callback){
+//	$http.get('/all')
+//	    .success(function(data){
+//		if (!data.error){
+//		    callback(data);
+//		}
+//	    });
+//
 
 	    this.getStats = function(){
 		var defer= $q.defer();

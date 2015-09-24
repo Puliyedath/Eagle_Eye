@@ -51,7 +51,7 @@
 			    scope.selItem = location;
 			}
 
-			console.log("sel index is " + scope.selIndex);
+			console.log("sel index is " + scope.selIndex); //debug - 
 			console.log("sel item is " + scope.selItem);
 			console.log(scope.selItem);
 			console.log("index is " + index);
@@ -60,10 +60,6 @@
 			}
 			return scope.selIndex == index;
 		    };
-
-		    scope.$watch('selIndex', function(){
-			console.log('list fired - digest cycle'); //checking the digest phase : testing purpose
-		    });
 
 		    scope.select = function(location){
 			scope.visible = false;
