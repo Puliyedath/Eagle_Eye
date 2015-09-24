@@ -31,7 +31,6 @@ module.exports= function(app){
 	});
     });
 
-
     /*
      ************************************************************************************************************************************************
      * Route: runs a aggregation query on external data to get the release year and the number of corresponding shoots which happened in san fransico city
@@ -60,7 +59,6 @@ module.exports= function(app){
      * Error Handling: If no data is received from the database and an empty error object goes to the client
      *************************************************************************************************************************************************
      */
-    
     app.get('/releaseAndLocations', function(req,res){
 	location.aggregate([{
 		$group:{
@@ -102,7 +100,7 @@ module.exports= function(app){
 	});
     });
 
-    /*
+     /*
      ************************************************************************************************************************************************
      * Route: Catch all route for all unhandled request before it hits the express middleware
      * Error Handling: This being the last route , any error here goes to the custom error handler route
