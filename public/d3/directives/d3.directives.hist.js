@@ -37,6 +37,9 @@
 			    return scope.renderData(newValue); 
 			},true);
 
+			/*
+			 this method renders the svg element in the box and uses the standard d3 api
+			 */
 			scope.renderData = function(data){
 			    //this is where the svg is rendered
 			    svg.selectAll('*').remove();
@@ -51,7 +54,7 @@
 				svGheight = scope.data.length * (barHeight + padding),
 				xScale = d3.scale.linear()
 				    .domain([0, d3.max(data, function(d){
-					return d.score;
+					return parseInt(d.count_locations);
 				    })])
 				    .range([0, width]);
 
@@ -69,12 +72,12 @@
 				    return i * (barHeight + padding);
 				})
 				.attr('fill', function(d){
-				    return color(d.score);
+				    return color(d.count_locations);
 				})
 				.transition()
 				.duration(1000)
 				.attr('width', function(d){
-				    return xScale(d.score);
+				    return xScale(d.count_locations);
 				});
 
 			    svg.selectAll('text')
@@ -82,7 +85,7 @@
 				.enter()
 				.append('text')
 				.text(function(d){
-				    return d.year + "(" + (d.score) + ")" ;
+				    return d.release_year + "(" + (d.count_locations) + ")" ;
 				})
 				.attr('x', function(d,i){
 				    return Math.round(margin + 4);

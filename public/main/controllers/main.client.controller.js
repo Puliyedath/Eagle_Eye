@@ -5,12 +5,6 @@
 	    $scope.visible = false;
 	    $scope.subMLocations = "";
 
-        dataCollector.getAllMovies(function(data){
-		    $scope.locations = data;
-            $scope.subMLocations = data;
-		    console.log(data);
-		});
-
 	    //send a get request for every change in text
 	    $scope.$watch('text',function(newValue, oldValue){
 		if(!($scope.text)){
@@ -34,7 +28,7 @@
 		    $scope.text = selectedEntry[0].title + "-" + selectedEntry[0].locations;
 		}
 		
-        dataCollector.getSubmittedMovies(selectedEntry,function(movies){
+		dataCollector.getSubmittedMovies(selectedEntry,function(movies){
 		    $scope.subMLocations = movies;
 		});
 

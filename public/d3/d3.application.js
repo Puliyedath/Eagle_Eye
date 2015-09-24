@@ -5,7 +5,7 @@
 
 	    function onScriptLoad(){
 		$rootScope.$apply(function(){
-		    //this will resolve the promise with d3 object and make it avaibable in the callback
+		    //this will resolve the promise with d3 object and make it avaibable for all the child scopes
 		    defer.resolve(window.d3);
 		});
 	    }

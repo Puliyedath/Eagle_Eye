@@ -1,10 +1,11 @@
 (function(){
     angular.module('sfMovieApp')
-	.service('dataCollector', ['$http', function($http){
+	.service('dataCollector', ['$http', '$q', function($http, $q){
 	    this.lastQuery = "";
+
 	    this.getSubmittedMovies = function(queryString, callback){
 		if (this.lastQuery === queryString){
-		    console.log('here');
+		    console.log('no change in the query , no need to run');
 		    return;
 		}
 		this.lastQuery = queryString;
@@ -28,5 +29,20 @@
 			}
 		    });
 	    };
+
+	    this.getStats = function(){
+		var defer= $q.defer();
+		$http.get('/releaseAndLocations')
+		    .success(function(data){
+			defer.resolve(data);
+		    })
+		    .error(function(data, status){
+			defer.reject(data);
+		    });
+
+		return defer.promise;
+	    };
+	    
+	    
 	}]);
 })();
