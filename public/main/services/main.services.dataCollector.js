@@ -3,6 +3,9 @@
 	.service('dataCollector', ['$http', '$q', function($http, $q){
 	    this.lastQuery = "";
 
+	    /*
+	     caches the last query fired from the search box
+	     */
 	    this.setLastSubMittedQuery = function(queryString){
 		if (this.lastQuery === queryString){
 		    console.log('no change in the query , no need to run');
@@ -20,15 +23,9 @@
 		    });
 	    };
 
-//is.getAllMovies = function(callback){
-//	$http.get('/all')
-//	    .success(function(data){
-//		if (!data.error){
-//		    callback(data);
-//		}
-//	    });
-//
-
+	    /*
+	     fires the query to get the stats for release year and number of movie shootings in the city of san fransisco 
+	     */
 	    this.getStats = function(){
 		var defer= $q.defer();
 		$http.get('/releaseAndLocations')

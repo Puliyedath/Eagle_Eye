@@ -56,7 +56,7 @@
 
 
 		    var addStreetMarkers = function(map, markers){
-			var geocodedMap = $q.defer();
+			//var geocodedMap = $q.defer();
 			geocoder = new google.maps.Geocoder();
 
 			//clearing off the markers

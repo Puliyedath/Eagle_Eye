@@ -29,7 +29,6 @@
 	    $scope.submit = function(selectedEntry, goToGoogleMaps){
 		$scope.visible = false;
 		$scope.subMLocations = selectedEntry;
-		dataCollector.setLastSubMittedQuery(selectedEntry);
 		$scope.text = selectedEntry[0].title + "-" + selectedEntry[0].locations;
 	    };
 	}]);

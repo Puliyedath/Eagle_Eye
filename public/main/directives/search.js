@@ -33,6 +33,10 @@
 				    return;
 				}
 
+				/*
+				 this is like a reset to make sure that other keys in the text field
+				 dont update the sel index
+				 */
 				scope.selIndex = 0 ;
 				scope.selItem = null;
 
