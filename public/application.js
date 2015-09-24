@@ -1,6 +1,6 @@
 (function(){
     var app = angular.module('sfMovieApp', ['ngRoute', 'd3']);
-    app.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider){
+    app.config(['$routeProvider', function($routeProvider){
 
 	    $routeProvider
 		.when("/showBarChart",{

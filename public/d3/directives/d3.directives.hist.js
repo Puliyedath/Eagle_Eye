@@ -32,7 +32,7 @@
 			    scope.renderData(scope.data);
 			});
 
-			//watch to rerender the svg when the data changes
+			//watch to rerender the svg when the data changes -testing input
 			scope.$watch('data', function(newValue, oldValue){
 			    return scope.renderData(newValue); 
 			},true);
