@@ -251,7 +251,7 @@ input, textarea, select, {
 
 /*forms */
 
-form{
+.form-wrapper{
     & >  a {
 	display: inline-block;
 	padding: 0 1em;
@@ -288,7 +288,8 @@ form{
         }   
     }
 }
-form:after{
+
+.form-wrapper:after{
     content: '';
     display: block;
     margin-bottom: 0.5em;

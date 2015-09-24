@@ -323,7 +323,7 @@ input, textarea, select {
 
 /*forms */
 /* line 255, ../sass/screen.scss */
-form > a {
+.form-wrapper > a {
   display: inline-block;
   padding: 0 1em;
   background: black;
@@ -333,11 +333,11 @@ form > a {
   float: right;
 }
 /* line 266, ../sass/screen.scss */
-form input, form select, form textarea {
+.form-wrapper input, .form-wrapper select, .form-wrapper textarea {
   -webkit-appearance: none;
 }
 /* line 271, ../sass/screen.scss */
-form input[type=text] textarea, form select textarea, form textarea textarea {
+.form-wrapper input[type=text] textarea, .form-wrapper select textarea, .form-wrapper textarea textarea {
   -webkit-appearance: none;
   position: relative;
   width: 100%;
@@ -348,28 +348,28 @@ form input[type=text] textarea, form select textarea, form textarea textarea {
   outline: none;
 }
 /* line 281, ../sass/screen.scss */
-form input[type=text] textarea:focus, form select textarea:focus, form textarea textarea:focus {
+.form-wrapper input[type=text] textarea:focus, .form-wrapper select textarea:focus, .form-wrapper textarea textarea:focus {
   background: #f0f2f5;
 }
 /* line 286, ../sass/screen.scss */
-form input[type=text] textarea, form select textarea, form textarea textarea {
+.form-wrapper input[type=text] textarea, .form-wrapper select textarea, .form-wrapper textarea textarea {
   height: 12em;
 }
 
-/* line 291, ../sass/screen.scss */
-form:after {
+/* line 292, ../sass/screen.scss */
+.form-wrapper:after {
   content: '';
   display: block;
   margin-bottom: 0.5em;
 }
 
-/* line 297, ../sass/screen.scss */
+/* line 298, ../sass/screen.scss */
 #header {
   height: 3em;
   line-height: 3em;
   text-align: center;
 }
-/* line 302, ../sass/screen.scss */
+/* line 303, ../sass/screen.scss */
 #header h1 {
   font-size: 1.25em;
   color: #343e49;

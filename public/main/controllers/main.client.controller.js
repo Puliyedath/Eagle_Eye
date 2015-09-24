@@ -22,17 +22,15 @@
 		});
 	    });
 	    
-	    $scope.submit = function(selectedEntry, goToGoogleMaps){
-		if(goToGoogleMaps){
-		    $scope.subMLocations = selectedEntry;
-		    $scope.text = selectedEntry[0].title + "-" + selectedEntry[0].locations;
-		}
-		
-		dataCollector.getSubmittedMovies(selectedEntry,function(movies){
-		    $scope.subMLocations = movies;
-		});
 
+	    /*
+	     this submits the data to google maps directive
+	     */
+	    $scope.submit = function(selectedEntry, goToGoogleMaps){
 		$scope.visible = false;
+		$scope.subMLocations = selectedEntry;
+		dataCollector.setLastSubMittedQuery(selectedEntry);
+		$scope.text = selectedEntry[0].title + "-" + selectedEntry[0].locations;
 	    };
 	}]);
 }());

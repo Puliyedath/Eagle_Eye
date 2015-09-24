@@ -19,11 +19,11 @@
 				</div>
 			</div> <!-- header wrapper ends -->
 			<div id="main-wrapper" class="container">
-				<form ng-submit="submit(text)" novalidate>
+				<div class="form-wrapper">
 					<movie-search></movie-search>
 					<!-- <input id='search' ng-model='text' placeholder='search for streets'>-->
 					<!-- replaced that input with a directive-->
-				</form>
+				</div>
 				<div id="map-wrapper">
 					<movie-map streets=subMLocations zoom="12"></movie-map>
 					<!-- this is where the custom google maps attribute is going to go - replace by div#map with class container -->

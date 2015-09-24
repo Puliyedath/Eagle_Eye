@@ -3,13 +3,12 @@
 	.service('dataCollector', ['$http', '$q', function($http, $q){
 	    this.lastQuery = "";
 
-	    this.getSubmittedMovies = function(queryString, callback){
+	    this.setLastSubMittedQuery = function(queryString, callback){
 		if (this.lastQuery === queryString){
 		    console.log('no change in the query , no need to run');
 		    return;
 		}
 		this.lastQuery = queryString;
-		this.getMovies(queryString,callback);
 	    };
 
 	    this.getMovies = function(queryString,callback){
