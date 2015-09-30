@@ -1,5 +1,5 @@
 <div>
-	<input id='search' ng-model='text' placeholder='search for streets'>
+	<input id='search' ng-model='text' placeholder='type title: or locations:'>
 	<ul ng-show=visible class='autocomplete'> 
         <li ng-class="{'selected': isSelected($index, locations.length, location)}" class='button' ng-click='select(location)' ng-repeat='location in locations | limitTo:10 track by $index'>
 			<strong>{{location.title}}-{{location.locations}}</strong>
